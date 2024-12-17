@@ -18,8 +18,7 @@ struct DetailView: View {
                 .scaledToFit()
                 .frame(width: 300, height: 300)
                 .cornerRadius(12)
-            
-    
+
             Text(outfit.name)
                 .font(.title)
                 .bold()
