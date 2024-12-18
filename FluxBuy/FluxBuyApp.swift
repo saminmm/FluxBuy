@@ -10,11 +10,13 @@ import SwiftUI
 @main
 struct FluxBuyApp: App {
     @StateObject var favoritesManager = FavoritesManager()
+    @StateObject var cartManager = CartManager()
     
     var body: some Scene {
         WindowGroup {
             TabBarView()
                 .environmentObject(favoritesManager)
+                .environmentObject(cartManager)
         }
     }
 }

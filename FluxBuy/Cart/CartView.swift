@@ -6,17 +6,21 @@
 //
 
 import SwiftUI
-
 struct CartView: View {
     @EnvironmentObject var cartManager: CartManager
     
     var body: some View {
             VStack {
                 if cartManager.cartItems.isEmpty {
-                    Text("Your cart is empty.")
-                        .font(.title3)
-                        .foregroundColor(.gray)
-                        .padding()
+                    Image("Image 24")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 100, height: 100)
+                  
+                    Text("Your cart is empty!\n Discover everything we've got for you.")
+                        .font(.subheadline)
+                        .multilineTextAlignment(.center)
+                        
                 } else {
                     List {
                         ForEach(cartManager.cartItems) { item in
@@ -42,8 +46,8 @@ struct CartView: View {
                                 }) {
                                     Text("Remove")
                                         .font(.caption)
-                                        .foregroundColor(.red)
-                                }
+                                        
+                                }.accessibilityLabel("Remove this outfit from your cart")
                             }
                         }
                     }
@@ -55,7 +59,7 @@ struct CartView: View {
                         Spacer()
                         Text(cartManager.totalPrice)
                             .font(.headline)
-                            .foregroundColor(.green)
+                            .foregroundColor(Color(#colorLiteral(red: 0.4175323248, green: 0.7492563128, blue: 0.5844213367, alpha: 1)))
                     }
                     .padding()
 

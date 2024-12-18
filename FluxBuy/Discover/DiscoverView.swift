@@ -5,7 +5,6 @@
 //  Created by samin mirali on 16/12/24.
 
 import SwiftUI
-
 struct DiscoverView: View {
     @State private var searchText = ""
     @State private var selectedSegment = 0
@@ -13,14 +12,26 @@ struct DiscoverView: View {
     @EnvironmentObject var cartManager: CartManager
     
     var body: some View {
-        
         NavigationView {
-            
             VStack(alignment:.leading, spacing:10) {
-                Text("Discover")
-                    .bold()
-                    .font(.largeTitle)
-                    .padding(.horizontal)
+                
+                HStack(spacing:80){
+                    Text("Discover")
+                        .bold()
+                        .font(.largeTitle)
+                        .padding(.horizontal)
+                    Button(action: {
+                        readAloud(text: "Discover view, welcome Samin, search for items, and choose a category.")
+                    }) {
+                        Text("Voice Over")
+                            .padding(8)
+                            .background(Color(#colorLiteral(red: 0.4175323248, green: 0.7492563128, blue: 0.5844213367, alpha: 1)))
+                            .foregroundColor(.white)
+                            .cornerRadius(10)
+                    }
+                    .padding()
+                }
+                
                 Text("Welcome, Samin")
                     .font(.headline)
                     .padding(.horizontal)
@@ -58,10 +69,14 @@ struct DiscoverView: View {
                 default:
                     EmptyView()
                 }
+                
             }
         }
         
     }
+}
+func readAloud(text: String) {
+    UIAccessibility.post(notification: .announcement, argument: text)
 }
 
 #Preview {

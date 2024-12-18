@@ -14,10 +14,16 @@ struct FavoriteView: View {
         NavigationView {
             VStack {
                 if favoritesManager.savedOutfits.isEmpty {
-                    Text("No saved outfits yet!")
-                        .foregroundColor(.gray)
-                        .font(.title2)
-                        .padding()
+                    
+                    Image("Image 25")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 100, height: 100)
+                    
+                    Text("Your favorites are empty!\n Save outfits you love and find them here.")
+                        .font(.subheadline)
+                        .multilineTextAlignment(.center)
+                       
                 } else {
                     List {
                         ForEach(favoritesManager.savedOutfits) { outfit in
@@ -37,7 +43,6 @@ struct FavoriteView: View {
                     }
                 }
             }
-            .navigationTitle("Saved Outfits")
         }
     }
 }

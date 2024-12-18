@@ -5,9 +5,7 @@
 //  Created by samin mirali on 17/12/24.
 //
 
-
 import SwiftUI
-
 struct InspirationView: View {
     @State private var searchText = ""
     @State private var selectedSegment = 0
@@ -101,7 +99,7 @@ struct InspirationView: View {
                 }
                 .foregroundColor((Color(#colorLiteral(red: 0.6557801962, green: 0.650814712, blue: 0.6509031653, alpha: 1))))
             }
-        
+    
             Text("Trending Now")
                 .bold()
                 .font(.title)

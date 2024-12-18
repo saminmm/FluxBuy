@@ -25,7 +25,6 @@ struct TabBarView: View {
                 }
            
                 AccountView()
-            
                 .tabItem{
                     Label("Account", systemImage: "person.fill")
                 }
