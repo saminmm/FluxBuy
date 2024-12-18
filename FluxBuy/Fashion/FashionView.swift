@@ -11,11 +11,10 @@ struct FashionView: View {
     @State private var selectedGender = "Women"
     var body: some View {
         NavigationView {
-            VStack(spacing: 20) {
-                                Text("Tap on Top or Bottom of the Image")
-                                    .font(.headline)
-                                    .padding(.top, 20)
-                
+            VStack {
+                Text("Tap on Top or Bottom of the Image!")
+                    .font(.headline)
+                   
                 GeometryReader { geometry in
                     Image(selectedGender == "Women" ? "Image 15" : "Image 16")
                         .resizable()
@@ -31,7 +30,7 @@ struct FashionView: View {
                                 }
                                 .background(Color.black.opacity(0.001))
                                 
-                           
+                                
                                 NavigationLink(destination: BottomPageView()) {
                                     Rectangle()
                                         .foregroundColor(.clear)
@@ -44,25 +43,21 @@ struct FashionView: View {
                 }
                 .frame(height: 400)
                 
-                Spacer()
+                .navigationBarTitleDisplayMode(.inline)
                 
-                    .navigationBarTitleDisplayMode(.inline)
-            
                 Picker("Gender", selection: $selectedGender) {
                     Text("Women").tag("Women")
                     Text("Men").tag("Men")
                 }
                 .pickerStyle(SegmentedPickerStyle())
-                .padding()
-             
+                .padding(20)
+                
             }
-                        .navigationBarTitleDisplayMode(.inline)
-          
+            .navigationBarTitleDisplayMode(.inline)
+            
         }
     }
 }
-
-
 
 #Preview {
     FashionView()

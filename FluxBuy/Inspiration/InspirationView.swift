@@ -54,7 +54,7 @@ struct InspirationView: View {
                             }
                             .padding(40)
                             .background(Color(#colorLiteral(red: 0.9342129827, green: 0.9292460084, blue: 0.9207152724, alpha: 1)))
-                            .cornerRadius(20)
+                            .cornerRadius(14)
                         }
                     }
                 }
@@ -101,9 +101,7 @@ struct InspirationView: View {
                 }
                 .foregroundColor((Color(#colorLiteral(red: 0.6557801962, green: 0.650814712, blue: 0.6509031653, alpha: 1))))
             }
-            
-            //CategoryView(title: "Inspiration", description: "")
-            
+        
             Text("Trending Now")
                 .bold()
                 .font(.title)
@@ -123,7 +121,7 @@ struct InspirationView: View {
                             }
                             .padding(20)
                             .background(Color(#colorLiteral(red: 0.9342129827, green: 0.9292460084, blue: 0.9207152724, alpha: 1)))
-                            .cornerRadius(20)
+                            .cornerRadius(14)
                         }
                     }
                 }
@@ -132,7 +130,6 @@ struct InspirationView: View {
     }.padding(.horizontal)
 }
 }
-
 #Preview {
     InspirationView()
 }

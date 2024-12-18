@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "Getadme-2024_Spring_Two_Pieces_Skirt_Set_Women_Y2k_Crop_Tops_T-shirt_+_Cake_Skirts_Japanese_Kawaii_Fashion_Suits_Chic_Outwear_Korean_-_Only_Blouse___XXL-removebg-preview.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

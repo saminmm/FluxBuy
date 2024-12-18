@@ -5,18 +5,15 @@
 //  Created by samin mirali on 16/12/24.
 //
 
-
-
-
-
 import SwiftUI
 
 struct DetailView: View {
+    @EnvironmentObject var cartManager: CartManager
     
     var outfit: Outfit
     
     var body: some View {
-        VStack(spacing: 20) {
+        VStack {
             
             Image(outfit.imageName)
                 .resizable()
@@ -39,17 +36,22 @@ struct DetailView: View {
                 .font(.title2)
                 .foregroundColor(.green)
             
-            Spacer()
-            
-        }
-   
-        .navigationBarTitleDisplayMode(.inline)
+            Button(action: {
+                            cartManager.addToCart(item: outfit)
+                        }) {
+                            Text("Add to Cart")
+                                .font(.title2)
+                                .foregroundColor(.white)
+                                .padding()
+                                .background(Color(#colorLiteral(red: 0.4175323248, green: 0.7492563128, blue: 0.5844213367, alpha: 1)))
+                                .cornerRadius(10)
+                        }
+                        .padding(.bottom, 100)
+                    }
     }
 }
-
-struct DetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        DetailView(outfit: matchingOutfits[0])
-    }
+#Preview {
+    DetailView(outfit: matchingOutfits[0])
+           
 }
 

@@ -34,10 +34,20 @@ let trendingNow = [
 ]
 
 let offersOutfits = [
-    Outfit(name: "Casual Comfort", imageName: "Image 13", description: "Relaxed t-shirt and joggers.", price: "$45"),
-    Outfit(name: "City Sleek", imageName: "Image 14", description: "Smart casual blazer.", price: "$90"),
-    Outfit(name: "Summer Breeze", imageName: "Image 12", description: "Light floral summer dress.", price: "$55"),
-    Outfit(name: "Urban Edge", imageName: "Image 11", description: "Trendy ripped jeans.", price: "$70"),
-    Outfit(name: "Classic Touch", imageName: "Image 10", description: "Timeless white shirt.", price: "$60")
+    Outfit(name: "PULL&BEAR", imageName: "Image 13", description: "", price: "$18"),
+    Outfit(name: "Levi's®", imageName: "Image 14", description: "", price: "$60"),
+    Outfit(name: "WE Fashion", imageName: "Image 12", description: "", price: "$105"),
+    Outfit(name: "Bershka", imageName: "Image 11", description: "", price: "$27"),
+    Outfit(name: "Damart", imageName: "Image 10", description: "", price: "$77"),
+    Outfit(name: "Stradivarius", imageName: "Image 17", description: "", price: "$40")
+]
+
+let newsOutfits = [
+    Outfit(name: "PULL&BEAR", imageName: "Image 18", description: "", price: "$18"),
+    Outfit(name: "Levi's®", imageName: "Image 19", description: "", price: "$60"),
+    Outfit(name: "WE Fashion", imageName: "Image 20", description: "", price: "$105"),
+    Outfit(name: "Bershka", imageName: "Image 21", description: "", price: "$27"),
+    Outfit(name: "Damart", imageName: "Image 22", description: "", price: "$77"),
+    Outfit(name: "Stradivarius", imageName: "Image 23", description: "", price: "$40")
 ]
 

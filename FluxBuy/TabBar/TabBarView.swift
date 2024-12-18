@@ -8,9 +8,7 @@ import SwiftUI
 struct TabBarView: View {
     var body: some View {
         TabView{
-           
                 DiscoverView()
-            
                 .tabItem{
                     Label("Discover", systemImage: "house.fill")
                 }
@@ -38,4 +36,6 @@ struct TabBarView: View {
 
 #Preview {
     TabBarView()
+        .environmentObject(FavoritesManager())
+        .environmentObject(CartManager())
 }

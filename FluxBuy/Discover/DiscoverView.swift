@@ -10,7 +10,7 @@ struct DiscoverView: View {
     @State private var searchText = ""
     @State private var selectedSegment = 0
     @StateObject var favoritesManager = FavoritesManager()
-    
+    @EnvironmentObject var cartManager: CartManager
     
     var body: some View {
         
@@ -41,7 +41,7 @@ struct DiscoverView: View {
                     Text("Inspiration").tag(0)
                     Text("Fashion").tag(1)
                     Text("Offers").tag(2)
-                    Text("News").tag(3)
+                    Text("New").tag(3)
                 }
                 .pickerStyle(.segmented)
                 .padding(.horizontal)
@@ -54,32 +54,19 @@ struct DiscoverView: View {
                 case 2:
                     OffersView(outfits:offersOutfits )
                 case 3:
-                    NewsView()
+                    NewsView(outfits: newsOutfits)
                 default:
                     EmptyView()
                 }
             }
         }
         
-        TabView {
-                    OffersView(outfits: offersOutfits)
-                        .environmentObject(favoritesManager)
-                        .tabItem {
-                            Image(systemName: "square.grid.2x2")
-                            Text("Offers")
-                        }
-                    
-                    FavoriteView()
-                        .environmentObject(favoritesManager)
-                        .tabItem {
-                            Image(systemName: "bookmark.fill")
-                            Text("Saved")
-                        }
-                }
-        }
     }
+}
 
 #Preview {
     DiscoverView()
+        .environmentObject(FavoritesManager())
+        .environmentObject(CartManager())
 }
 

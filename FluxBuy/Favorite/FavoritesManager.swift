@@ -10,9 +10,13 @@ import SwiftUI
 class FavoritesManager: ObservableObject {
     @Published var savedOutfits: [Outfit] = []
     
-    func saveOutfit(_ outfit: Outfit) {
+    func addToFavorites(_ outfit: Outfit) {
         if !savedOutfits.contains(where: { $0.id == outfit.id }) {
             savedOutfits.append(outfit)
         }
+    }
+    
+    func removeFromFavorites(_ outfit: Outfit) {
+        savedOutfits.removeAll { $0.id == outfit.id }
     }
 }

@@ -11,64 +11,44 @@ struct OffersView: View {
     var outfits: [Outfit]
     @EnvironmentObject var favoritesManager: FavoritesManager
     
-    let column3 = [
-        GridItem(.flexible(), spacing: 20),
-        GridItem(.flexible(), spacing: 20)
-    ]
-    
     var body: some View {
-        ScrollView(.vertical, showsIndicators: false) {
-            LazyVGrid(columns: column3, spacing: 20) {
-                ForEach(outfits) { outfit in
-                    VStack(spacing: 8) {
-                     
+        ScrollView {
+            LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 20) {
+                ForEach(offersOutfits) { outfit in
+                    VStack {
                         Image(outfit.imageName)
                             .resizable()
-                            .scaledToFill()
-                            .frame(width: 150, height: 150)
-                            .clipped()
-                            .cornerRadius(10)
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 10)
-                                    .stroke(Color.gray.opacity(0.5), lineWidth: 1)
-                            )
-                
-                        VStack(spacing: 4) {
-                            Text(outfit.name)
-                                .font(.headline)
-                                .foregroundColor(.primary)
-                                .lineLimit(1)
-                            Text(outfit.price)
-                                .font(.subheadline)
-                                .foregroundColor(.red)
-                        }
+                            .scaledToFit()
+                            .frame(width: 120,height: 120)
+                            .padding(20)
+                            .background(Color(#colorLiteral(red: 0.9342129827, green: 0.9292460084, blue: 0.9207152724, alpha: 1)))
+                            .cornerRadius(14)
                         
-                  
-                        Button(action: {
-                            favoritesManager.saveOutfit(outfit)
-                        }) {
-                            HStack {
-                                Image(systemName: "bookmark.fill")
-                                    .foregroundColor(.blue)
-                                Text("Save")
-                                    .font(.caption)
-                                    .foregroundColor(.blue)
+                        HStack(spacing: 50){
+                        Text(outfit.name)
+                                .font(.callout)
+                            
+                            Button(action: {
+                                favoritesManager.addToFavorites(outfit)
+                            }) {
+                                Image(systemName: "heart.square")
+                                   
+                                    .foregroundColor(Color(#colorLiteral(red: 0.4175323248, green: 0.7492563128, blue: 0.5844213367, alpha: 1)))
+                                    .font(.title2)
                             }
-                            .padding(.vertical, 5)
-                            .frame(maxWidth: .infinity)
-                            .background(Color(.systemGray6))
-                            .cornerRadius(8)
                         }
-                    }
+                        Text(outfit.price)
+                            .font(.headline)
+                            .foregroundColor(.red)
+                            .padding(.trailing,120)
+                        
+                    }.padding(10)
                 }
             }
-            .padding()
         }
     }
 }
-
-struct OffersView_Previews: PreviewProvider {
-    static var previews: some View {
-        OffersView(outfits: offersOutfits)
-    }
+#Preview {
+    OffersView(outfits: offersOutfits)
+       
 }
