@@ -5,31 +5,37 @@
 //  Created by samin mirali on 16/12/24.
 //
 import SwiftUI
-
 struct TabBarView: View {
-    @Binding var selectedTab: String
-    let tabs = ["Fashion", "Inspiration", "Offers", "New"]
-    
     var body: some View {
-        HStack {
-            ForEach(tabs, id: \.self) { tab in
-                Button(action: {
-                    selectedTab = tab
-                }) {
-                    Text(tab)
-                        .fontWeight(selectedTab == tab ? .bold : .regular)
-                        .foregroundColor(selectedTab == tab ? .green : .gray)
-                        .padding(.vertical, 10)
-                        .frame(maxWidth: .infinity)
+        TabView{
+           
+                DiscoverView()
+            
+                .tabItem{
+                    Label("Discover", systemImage: "house.fill")
                 }
-            }
-        }
-        .background(Color.gray.opacity(0.1))
-        .cornerRadius(10)
-        .padding(.horizontal)
+      
+                FavoriteView()
+            
+                .tabItem{
+                    Label("Save", systemImage: "heart")
+                }
+            
+                CartView()
+               .tabItem{
+                    Label("Cart", systemImage: "cart")
+                }
+           
+                AccountView()
+            
+                .tabItem{
+                    Label("Account", systemImage: "person.fill")
+                }
+            
+        }.tint(Color(#colorLiteral(red: 0.4175323248, green: 0.7492563128, blue: 0.5844213367, alpha: 1)))
     }
 }
-#Preview{
-   @State var previewSelectedTab = "Inspiration"
-return TabBarView(selectedTab: $previewSelectedTab)
+
+#Preview {
+    TabBarView()
 }

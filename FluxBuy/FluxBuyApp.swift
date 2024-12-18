@@ -7,11 +7,13 @@
 
 import SwiftUI
 
-@main
-struct FluxBuyApp: App {
+@main struct FluxBuyApp: App {
+    @StateObject var favoritesManager = FavoritesManager()
+    
     var body: some Scene {
         WindowGroup {
-            DiscoverView()
+            TabBarView()
+                .environmentObject(favoritesManager)
         }
     }
 }
